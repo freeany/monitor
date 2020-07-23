@@ -9,7 +9,7 @@
     <div id="container">
         <div class="content">
             <input type="button" value="点此抛出错误" onclick="errorClick()">
-            <input type="button" value="点此抛出Promise错误" onclick="promiseErrorClick()">
+            <input type="button" id="promiseId" value="点此抛出Promise错误" onclick="promiseErrorClick()">
         </div>
     </div>
 
@@ -17,6 +17,13 @@
         function errorClick() {
             window.someVar.error = 'error'
         }
+        function promiseErrorClick() {
+            new Promise(function(resolve, reject) {
+                window.someVar.error = 'error'
+                // reject('a')
+            })
+        }
     </script>
+    <script src="./error.js"></script>
 </body>
 </html>
