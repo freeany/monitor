@@ -7,6 +7,7 @@ import SendTracker from '../utils/tracker'
 export function injectJsError () {
     // 监听全局未捕获的错误
     window.addEventListener('error', function (event) { // 错误事件对象
+        console.log('errorEvent', event)
         let lastEvent = getLastEvent() // 最后一个交互事件
         // console.log(lastEvent)
         // event 错误事件对象
