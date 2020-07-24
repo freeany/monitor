@@ -2,16 +2,20 @@ let host = 'cn-shanghai.log.aliyuncs.com' // 主机名
 let project = 'lhrmonitor'
 let logstoreName = 'lhrmonitorstore'
 let userAgent = require('user-agent')
+// 额外的数据， 一些公用的数据
 function getExtraData () {
     return {
         // 用户id， 用户token等...
         title: document.title,
         url: location.url,
         timestemp: Date.now(),
-        userAgent: JSON.stringify(userAgent.parse(navigator.userAgent))
+        // userAgent: JSON.stringify(userAgent.parse(navigator.userAgent))
+        userAgent: userAgent.parse(navigator.userAgent).name
     }
 }
-
+/* 
+    一般会使用gif做图片上传，图片上传的速度快，而且没有跨域问题，但是有长度限制
+*/
 // 将日志发送到服务器 
 class SendTracker {
     constructor() {
