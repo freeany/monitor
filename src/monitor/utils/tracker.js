@@ -7,7 +7,7 @@ function getExtraData () {
     return {
         // 用户id， 用户token等...
         title: document.title,
-        url: location.url,
+        url: location.href,
         timestemp: Date.now(),
         // userAgent: JSON.stringify(userAgent.parse(navigator.userAgent))
         userAgent: userAgent.parse(navigator.userAgent).name
@@ -33,6 +33,7 @@ class SendTracker {
         }
         // 这里规定， send的 数据的__log__的值是一个数组，数组中的值是对象，该对象中的每个值都必须是字符串，如果不是字符串将会报错
         // https://help.aliyun.com/document_detail/120218.html?spm=a2c4g.11186623.4.1.4aa15ad13kqlfz
+        console.log(logs)
         let body = JSON.stringify({
             __logs__: [JSON.parse(JSON.stringify(logs))]
         });
