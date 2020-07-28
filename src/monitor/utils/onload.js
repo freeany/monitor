@@ -1,7 +1,9 @@
-export default function(callback) {
-    if(document.readyState === 'complete') {
+export default function (callback) {
+    if (document.readyState === 'complete') {
+        console.log('complete callback')
         callback && callback()
-    }else {
-        window.addEventListener('load', callback && callback())
+    } else {
+        // console.log('load callback')
+        window.addEventListener('load', callback)
     }
 }

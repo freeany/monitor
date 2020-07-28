@@ -10,9 +10,20 @@
 <body>
     <div id="container">
         <div class="content main">
-            xxx
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            <button id="xhrError">error</button>
         </div>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        // document.querySelector('.content').innerHTML = '<div class="xyz" style="height: 300px;background: pink"></div>'
+        document.getElementById('xhrError').addEventListener('click', function () {
+            axios.get('/success')
+                .then(function (response) {
+                    console.log(response);
+                })
+        })
+    </script>
 </body>
 
 </html>
